@@ -4,11 +4,6 @@ function Dashboard() {
     return (
         <div>
             Host Dashboard
-            <nav>
-                <Link to="/host/income">Income</Link>
-                <Link to="/host/reviews">Reviews</Link>
-            </nav>
-            <Outlet />
         </div>
     )
 }
