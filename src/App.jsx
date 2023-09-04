@@ -20,20 +20,26 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<Layout />}>
-          <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About />} />
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path='about' element={<About />} />
 
-          {/* Van */}
-          <Route path='/vans' element={<Vans />} />
-          <Route path='/vans/:id' element={<VanDetail />} />
+          {/* Van  (here nothing to share among these two components bellow, so just added pathles Route) */}
+          {/* <Route path='vans'>
+            <Route index element={<Vans />} />
+            <Route path=':id' element={<VanDetail />} />
+          </Route> */}
 
-          {/* host */}
+          {/* OR keep it simple */}
+          <Route path='vans' element={<Vans />} />
+          <Route path='vans/:id' element={<VanDetail />} />
 
-          <Route element={<HostLayout />} >
-            <Route path='/host' element={<Dashboard />} />
-            <Route path='/host/income' element={<Income />} />
-            <Route path='/host/reviews' element={<Reviews />} />
+
+          {/* Host (this one shares commen nav so layout added to its parent) */}
+          <Route path='host' element={<HostLayout />} >
+            <Route index element={<Dashboard />} />
+            <Route path='income' element={<Income />} />
+            <Route path='reviews' element={<Reviews />} />
           </Route>
         </Route>
       </Routes>
