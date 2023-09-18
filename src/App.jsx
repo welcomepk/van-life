@@ -9,14 +9,19 @@ import HostLayout from './components/HostLayout'
 import Dashboard from './pages/host/Dashboard'
 import Income from './pages/host/Income'
 import Reviews from './pages/host/Reviews'
-
+import HostVans from './pages/host/HostVans'
+import HostVanDetail from './pages/host/HostVanDetail'
+import HostVanPhotos from './pages/host/HostVanPhotos'
+import HostVanPricing from './pages/host/HostVanPricing'
+import HostVanInfo from './pages/host/HostVanInfo'
 import './server'
 import './App.css'
-
+import HostVanDetailLayout from './components/HostVanDetailLayout'
 
 
 
 function App() {
+
   return (
     <BrowserRouter>
       <Routes>
@@ -40,6 +45,12 @@ function App() {
             <Route index element={<Dashboard />} />
             <Route path='income' element={<Income />} />
             <Route path='reviews' element={<Reviews />} />
+            <Route path='vans' element={<HostVans />} />
+            <Route path='vans/:id' element={<HostVanDetail />} >
+              <Route index element={<HostVanInfo />} />
+              <Route path='pricing' element={<HostVanPricing />} />
+              <Route path='photos' element={<HostVanPhotos />} />
+            </Route>
           </Route>
         </Route>
       </Routes>
